@@ -23,3 +23,8 @@ once the list of items was being called from the API, then the "hardcoded" list 
 
 Currently have three "nevers" so typescript needs to be taught what the todoItems are. (Typscript needs a type)
 inside the useEffect function, we can add <TodoItemType[]> between "useState" & the parenthesis.
+
+<!-- Presumably we are going to post changes to the API next.
+Post additional tasks to the client
+Update tasks on the client when completed.
+ -->
