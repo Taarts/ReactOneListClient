@@ -27,7 +27,15 @@ export function App() {
     }
     fetchListOfItems()
   }, [])
-
+  async function handleCreateNewTodoItem() {
+    const response = await axios.post(
+      'https://one-list-api.herokuapp.com/items?access_token=cohort24',
+      { item: { text: newTodoText } }
+    )
+    if (response.status === 201) {
+      console.log(response.data)
+    }
+  }
   return (
     <div className="app">
       <header>
@@ -46,7 +54,12 @@ export function App() {
             )
           })}
         </ul>
-        <form>
+        <form
+          onSubmit={function (event) {
+            event.preventDefault()
+            handleCreateNewTodoItem()
+          }}
+        >
           <input
             type="text"
             placeholder="Whats up?"

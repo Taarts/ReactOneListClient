@@ -28,3 +28,23 @@ inside the useEffect function, we can add <TodoItemType[]> between "useState" & 
 Post additional tasks to the client
 Update tasks on the client when completed.
  -->
+
+Input field - inside the <form>
+create a new state " const [newTodoText, setNewTodoText] = useState('')"
+call the new state inside the form after the "placeholder text" with "onChange={(event) => {
+setNewTodoText(event.target.value)".
+This will update the state with the value of the input field.
+
+Create a new function to handle the submission of the form.
+onSubmit - inside the <form>
+onSubmit={function (event) {
+
+<!-- please don't do anything unless I tell you to -->
+
+            event.preventDefault()
+
+<!-- these are split which allows the first event simple input to  occur and then it's acted upton in the function below, which is going to have more code in it. -->
+
+            handleCreateNewTodoItem()
+
+Edit handleCreateNewTodoItem function:
