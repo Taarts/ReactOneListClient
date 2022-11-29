@@ -120,7 +120,7 @@ then call the function inside thus: "useEffect(loadAllTheItems, [])"
 
 NOW: this function can be called in the todoItems.
 Place the named function in the <ul> todoItem "reloadItems={loadAllTheItems}" function VSCode actually tells you where to put it.
-Change the TodoItemProps to include relaodItems: () => void, then call the function inside the TodoItem function "props.reloadItems()".
+Change the TodoItemProps to include reloadItems: () => void, then call the function inside the TodoItem function "props.reloadItems()".
 So we're taking the loadAllTheItems function from the parent, extracted from useEffect and passing it to the todoItem down and then calling it back up to in the App we can cross off items in our list AND UNcross items in our list.
 
 <!-- then call the function inside the handleCreateNewTodoItem function -->
@@ -155,5 +155,15 @@ Inside - "function TodoItem(props: TodoItemProps) {"
 then remove "props." from function toggleCOmpleteStatus and <li> inside "type TodoItemProps"
 Destructuring the destructured props:
 "function TodoItem({ todoItem, reloadItems }: TodoItemProps) {"
+
+Further down the rabbit hole:
+
+<!-- Destructuring the TodoItem: -->
+
+function TodoItem({
+todoItem: {id, text, complete },
+reloadItems,
+}: TodoItemProps) {...
+})
 
 <!-- then call the function inside the toggleCompleteStatus function -->
