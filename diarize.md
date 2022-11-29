@@ -166,4 +166,7 @@ reloadItems,
 }: TodoItemProps) {...
 })
 
-<!-- then call the function inside the toggleCompleteStatus function -->
+<!-- Extracting the props to a component -->
+
+move the propstype to below the TodoItem function.
+select the whole thing and extract to a new component "TodoItem.tsx" - VSC does this automatically AND imports it back in to the App for you.

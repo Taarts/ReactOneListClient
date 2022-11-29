@@ -1,8 +1,9 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import logo from './images/sdg-logo.png'
+import { TodoItem } from './components/TodoItem'
 
-type TodoItemType = {
+export type TodoItemType = {
   id: number
   text: string
   complete: boolean
@@ -79,35 +80,5 @@ export function App() {
         <p>&copy; 2020 Suncoast Developers Guild</p>
       </footer>
     </div>
-  )
-}
-
-type TodoItemProps = { todoItem: TodoItemType; reloadItems: () => void }
-
-function TodoItem({
-  todoItem: { id, text, complete },
-  reloadItems,
-}: TodoItemProps) {
-  // destructuring props to treat them as local variables
-
-  async function toggleCompleteStatus() {
-    const response = await axios.put(
-      `https://one-list-api.herokuapp.com/items/${id}?access_token=cohort24`,
-      { item: { complete: !complete } }
-    )
-
-    if (response.status === 200) {
-      reloadItems()
-    }
-  }
-
-  return (
-    <li
-      key={id}
-      className={complete ? 'completed' : undefined}
-      onClick={toggleCompleteStatus}
-    >
-      {text}
-    </li>
   )
 }
