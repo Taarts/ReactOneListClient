@@ -48,3 +48,104 @@ onSubmit={function (event) {
             handleCreateNewTodoItem()
 
 Edit handleCreateNewTodoItem function:
+async the function to update an object from the user input. Modify the function with and if statement to record the input if it's ok (201)
+then get it to append the array using a spreader operator. "...todoItems" and then add the new item to the end of the array.
+then set the state with the new array.
+then set the state to the new array.
+then clear the input field.
+
+<!-- doing this  -->
+
+to prepend the list, say if the input field is at the top, change the order to:
+const newTodoItems = [newTodo,...todoItems]
+reverses the order on refresh
+
+<!-- the input field text is "sticking" -->
+
+clear input with - setTodoItems('') // clear the input
+
+<!-- mark completed the list -->
+
+pull the <li> out of the main app and create a component redefined it below as it's own function with the new object "todoItem" with "type: properties".
+insert click handler inside the <li> inside the new function
+make sure that ${props.todoItem.id} so it's clear which item is being clicked on.
+
+<!-- insert logic into this code to make it mark complete? -->
+
+If/else statement to mark complete: false/true offered in two ways:
+First:
+async function toggleCompleteStatus() {
+if (props.todoItem.complete) {
+const response = await axios.put(
+`https://one-list-api.herokuapp.com/items/${props.todoItem.id}?access_token=cohort42`,
+{ item: { complete: false } }
+)
+if (response.status === 200) {
+console.log(response.data)
+}
+} else {
+const response = await axios.put(
+`https://one-list-api.herokuapp.com/items/${props.todoItem.id}?access_token=cohort42`,
+{ item: { complete: true } }
+)
+if (response.status === 200) {
+console.log(response.data)
+}
+}
+}
+
+possible to simply this statement
+Second: as used in the code
+
+<!-- !true = false/ !false = true -->
+
+function TodoItem(props: TodoItemProps) {
+async function toggleCompleteStatus() {
+const response = await axios.put(
+`https://one-list-api.herokuapp.com/items/${props.todoItem.id}?access_token=cohort24`,
+{ item: { complete: !props.todoItem.complete } } //
+)
+
+    if (response.status === 200) {
+      console.log(response.data)
+    }
+
+}
+
+<!--  reload the list -->
+
+Refactoring useEffect to reload the list:
+Pull the function out of useEffect and call it "loadAllTheItems"
+then call the function inside thus: "useEffect(loadAllTheItems, [])"
+
+NOW: this function can be called in the todoItems.
+Place the named function in the <ul> todoItem "reloadItems={loadAllTheItems}" function VSCode actually tells you where to put it.
+Change the TodoItemProps to include relaodItems: () => void, then call the function inside the TodoItem function "props.reloadItems()".
+So we're taking the loadAllTheItems function from the parent, extracted from useEffect and passing it to the todoItem down and then calling it back up to in the App we can cross off items in our list AND UNcross items in our list.
+
+<!-- then call the function inside the handleCreateNewTodoItem function -->
+
+as above... here we go.
+replace:
+const response = await axios.post(
+'https://one-list-api.herokuapp.com/items?access_token=cohort24',
+{ item: { text: newTodoText } }
+)
+
+<!-- from here -->
+
+const response = await axios.get(
+'https://one-list-api.herokuapp.com/items?access_token=cohort24'
+)
+
+      if (response.status === 200) {
+        setTodoItems('')
+        // clear the input
+      }
+
+<!-- to here -->
+
+"with loadAllTheItems()"
+Replacing duplication with a function call.
+
+<!-- then call the function inside the toggleCompleteStatus function -->
