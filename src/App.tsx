@@ -84,9 +84,8 @@ export function App() {
 
 type TodoItemProps = { todoItem: TodoItemType; reloadItems: () => void }
 
-function TodoItem(props: TodoItemProps) {
+function TodoItem({ todoItem, reloadItems }: TodoItemProps) {
   // destructuring props to treat them as local variables
-  const { todoItem, reloadItems } = props
 
   async function toggleCompleteStatus() {
     const response = await axios.put(

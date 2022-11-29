@@ -148,4 +148,12 @@ const response = await axios.get(
 "with loadAllTheItems()"
 Replacing duplication with a function call.
 
+<!-- Destructure our props -->
+
+Inside - "function TodoItem(props: TodoItemProps) {"
+"const { todoItem, reloadItems } = props"
+then remove "props." from function toggleCOmpleteStatus and <li> inside "type TodoItemProps"
+Destructuring the destructured props:
+"function TodoItem({ todoItem, reloadItems }: TodoItemProps) {"
+
 <!-- then call the function inside the toggleCompleteStatus function -->
