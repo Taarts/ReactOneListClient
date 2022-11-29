@@ -85,24 +85,27 @@ export function App() {
 type TodoItemProps = { todoItem: TodoItemType; reloadItems: () => void }
 
 function TodoItem(props: TodoItemProps) {
+  // destructuring props to treat them as local variables
+  const { todoItem, reloadItems } = props
+
   async function toggleCompleteStatus() {
     const response = await axios.put(
-      `https://one-list-api.herokuapp.com/items/${props.todoItem.id}?access_token=cohort24`,
-      { item: { complete: !props.todoItem.complete } }
+      `https://one-list-api.herokuapp.com/items/${todoItem.id}?access_token=cohort24`,
+      { item: { complete: !todoItem.complete } }
     )
 
     if (response.status === 200) {
-      props.reloadItems()
+      reloadItems()
     }
   }
 
   return (
     <li
-      key={props.todoItem.id}
-      className={props.todoItem.complete ? 'completed' : undefined}
+      key={todoItem.id}
+      className={todoItem.complete ? 'completed' : undefined}
       onClick={toggleCompleteStatus}
     >
-      {props.todoItem.text}
+      {todoItem.text}
     </li>
   )
 }
