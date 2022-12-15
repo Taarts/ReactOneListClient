@@ -42,6 +42,10 @@ export function TodoItemPage() {
       history('/')
     }
   }
+  // default is undefined, render NOTHING until there is an id
+  if (!todoItem.id) {
+    return null
+  }
 
   return (
     <div>
