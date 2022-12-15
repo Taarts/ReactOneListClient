@@ -21,6 +21,8 @@ add "element" and the path of our component "TodoList" and the app renders the l
 
 Components come into their own when we use "<Routes><Route path="" element={< ----- >}>" to render them in the app.
 
+Delete function and activated the "Link" component from react-router-dom
+
 ## All the usual
 
 FOUR STEPS TO MAKING REACT APP:
