@@ -6,6 +6,19 @@ npm install --save-dev @types/react-router-dom
 
 import BrowserRouter wrap the <app> in the main.tsx
 
+<React.Fragment> join two elements together
+"<></>" is the same as above
+
+Refactor the list portion into it's own file.
+
+Now we can tell our app to only render if URL is /...
+
+## React Router
+
+"Switch" is outdated and replaced with "Routes"
+"Routes" is a component that takes a "path" and a "element" as props.
+add "element" and the path of our component "TodoList" and the app renders the list.
+
 ## All the usual
 
 FOUR STEPS TO MAKING REACT APP:
@@ -15,7 +28,7 @@ FOUR STEPS TO MAKING REACT APP:
 3. Remove your hardcoded data (<li>s) from the HTML& make sample data in that state
 4. Load Data from the API to replace the Hardcoded data in the state
 
----
+-
 
 added a const to mirror the list of things that are listed on the app page.
 
