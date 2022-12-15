@@ -20,6 +20,7 @@ export function App() {
       <main>
         <Routes>
           <Route path="/" element={<TodoList />}></Route>
+          <Route path="*" element={<h1>404 Not Found</h1>}></Route>
         </Routes>
       </main>
       <footer>
