@@ -1,5 +1,11 @@
 ReactOneListClient video
 
+npm install
+react-router react-router-dom
+npm install --save-dev @types/react-router-dom
+
+import BrowserRouter wrap the <app> in the main.tsx
+
 ## All the usual
 
 FOUR STEPS TO MAKING REACT APP:
