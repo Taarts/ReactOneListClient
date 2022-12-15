@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router'
+import { Link } from 'react-router-dom'
 import logo from './images/sdg-logo.png'
 import { TodoItemPage } from './pages/TodoItemPage'
 import { TodoList } from './pages/TodoList'
@@ -27,7 +28,9 @@ export function App() {
       </main>
       <footer>
         <p>
-          <img src={logo} height="42" alt="logo" />
+          <Link to="/">
+            <img src={logo} height="42" alt="logo" />
+          </Link>
         </p>
         <p>&copy; 2020 Suncoast Developers Guild</p>
       </footer>
