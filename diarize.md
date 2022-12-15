@@ -19,6 +19,8 @@ Now we can tell our app to only render if URL is /...
 "Routes" is a component that takes a "path" and a "element" as props.
 add "element" and the path of our component "TodoList" and the app renders the list.
 
+Components come into their own when we use "<Routes><Route path="" element={< ----- >}>" to render them in the app.
+
 ## All the usual
 
 FOUR STEPS TO MAKING REACT APP:
